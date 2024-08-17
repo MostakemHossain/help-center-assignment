@@ -14,7 +14,7 @@ const createCard = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const getALLCard = catchAsync(async (req: Request, res: Response) => {
-  const result = await cardService.getALLCards();
+  const result = await cardService.getALLCards(req.query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     message: "Cards retrieved Successfully",

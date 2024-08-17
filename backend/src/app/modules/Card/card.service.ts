@@ -6,8 +6,16 @@ const createCard = async (payload: TCard) => {
   return result;
 };
 
-const getALLCards = async () => {
-  const result = await Card.find();
+const getALLCards = async (query: Record<string, unknown>) => {
+  let searchTerm = "";
+  if (query?.searchTerm) {
+    searchTerm = query?.searchTerm as string;
+  }
+  const result = await Card.find({
+    $or: ["title", "description"].map((field) => ({
+      [field]: { $regex: searchTerm, $options: "i" },
+    })),
+  });
   return result;
 };
 
