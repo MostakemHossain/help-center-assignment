@@ -1,15 +1,19 @@
 import cors from "cors";
 import express, { Application } from "express";
+import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/ping", (req, res) => {
   res.send({
-    message: "Flat Share API..........",
+    message: "Help Center API..........",
   });
 });
+
+// global error handler
+app.use(globalErrorHandler);
 
 export default app;
