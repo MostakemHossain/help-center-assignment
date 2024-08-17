@@ -30,10 +30,15 @@ const updateACard = async (id: string, payload: Partial<TCard>) => {
   const result = await Card.findByIdAndUpdate(id, payload, { new: true });
   return result;
 };
+const deleteACard = async (id: string) => {
+  const result = await Card.findByIdAndDelete(id);
+  return result;
+};
 
 export const cardService = {
   createCard,
   getALLCards,
   getSingleCard,
   updateACard,
+  deleteACard,
 };

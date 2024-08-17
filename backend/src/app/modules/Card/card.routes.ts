@@ -17,5 +17,6 @@ router.put(
   validateRequest(cardValidation.updateCardValidationSchema),
   cardController.updateACard
 );
+router.delete("/cards/:id", cardController.deleteACard);
 
 export const cardRoutes = router;
