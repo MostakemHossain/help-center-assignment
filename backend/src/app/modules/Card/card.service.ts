@@ -11,7 +11,15 @@ const getALLCards = async () => {
   return result;
 };
 
+const getSingleCard = async (title: string) => {
+  const result = await Card.findOne({
+    title: title,
+  });
+  return result;
+};
+
 export const cardService = {
   createCard,
   getALLCards,
+  getSingleCard,
 };

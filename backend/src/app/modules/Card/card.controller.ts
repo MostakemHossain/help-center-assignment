@@ -22,8 +22,18 @@ const getALLCard = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getSingleCard = catchAsync(async (req: Request, res: Response) => {
+  const result = await cardService.getSingleCard(req.params.title);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    message: "Card retrieved Successfully",
+    success: true,
+    data: result,
+  });
+});
 
 export const cardController = {
   createCard,
   getALLCard,
+  getSingleCard,
 };

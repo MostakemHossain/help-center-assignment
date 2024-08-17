@@ -11,5 +11,6 @@ router.post(
   cardController.createCard
 );
 router.get("/cards", cardController.getALLCard);
+router.get("/cards/:title", cardController.getSingleCard);
 
 export const cardRoutes = router;
