@@ -10,5 +10,6 @@ router.post(
   validateRequest(cardValidation.createCardValidationSchema),
   cardController.createCard
 );
+router.get("/cards", cardController.getALLCard);
 
 export const cardRoutes = router;

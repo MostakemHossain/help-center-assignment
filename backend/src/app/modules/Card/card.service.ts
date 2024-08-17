@@ -6,6 +6,12 @@ const createCard = async (payload: TCard) => {
   return result;
 };
 
+const getALLCards = async () => {
+  const result = await Card.find();
+  return result;
+};
+
 export const cardService = {
   createCard,
+  getALLCards,
 };
