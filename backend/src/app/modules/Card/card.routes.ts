@@ -12,5 +12,10 @@ router.post(
 );
 router.get("/cards", cardController.getALLCard);
 router.get("/cards/:title", cardController.getSingleCard);
+router.put(
+  "/cards/:id",
+  validateRequest(cardValidation.updateCardValidationSchema),
+  cardController.updateACard
+);
 
 export const cardRoutes = router;

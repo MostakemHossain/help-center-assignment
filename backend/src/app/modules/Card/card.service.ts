@@ -26,8 +26,14 @@ const getSingleCard = async (title: string) => {
   return result;
 };
 
+const updateACard = async (id: string, payload: Partial<TCard>) => {
+  const result = await Card.findByIdAndUpdate(id, payload, { new: true });
+  return result;
+};
+
 export const cardService = {
   createCard,
   getALLCards,
   getSingleCard,
+  updateACard,
 };

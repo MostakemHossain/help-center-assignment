@@ -31,9 +31,19 @@ const getSingleCard = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const updateACard = catchAsync(async (req: Request, res: Response) => {
+  const result = await cardService.updateACard(req.params.id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    message: "Card Updated Successfully",
+    success: true,
+    data: result,
+  });
+});
 
 export const cardController = {
   createCard,
   getALLCard,
   getSingleCard,
+  updateACard,
 };
